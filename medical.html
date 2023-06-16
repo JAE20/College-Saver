@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Products</title>
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <!--using FontAwesome=====================================-->
+  <script src="https://kit.fontawesome.com/eeb0659f60.js" crossorigin="anonymous"></script>
+  <!--IMPORT Poppins======================================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!--================NAV BAR====================-->
+  <nav class="navigation">
+      <!--logo------->
+      <div id="logo">
+          <img src="img/Logo.png" alt="Logo">
+          <a href="home.html" class="logo">College Saver</a>
+      </div>
+      <!--menu------->
+      <ul class="menu">
+          <li><a href="home.html" >Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="product.html" class="active">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!--right-->
+      <div class="right-elements">
+          <!--search-->
+          <a href="#" class="search"><i class="fas fa-search"></i></a>
+          
+          <!--user---->
+          <a href="login.html" class="user"><i class="far fa-user"></i></a>
+
+          <!--cart---->
+          <div class="cart-icon" onclick="toggleCart()">
+            <div class="cart-count" id="cartCount">0</div>
+            <i class="fas fa-shopping-cart"></i>
+            
+          </div>
+      </div>
+  </nav>
+
+  <div class="cart-container" id="cartContainer">
+    <div class="cart-close" onclick="toggleCart()">
+      <i class="fas fa-times"></i>
+      
+
+    </div>
+    <br><br>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+   
+    <div id="emptyCartMessage" class="empty-cart-message">No product is added in the cart</div>
+    <div class="cart-summary">
+      
+      <div class="total" id="total">Total: &#83690</div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+]
+
+<br>
+<br>
+<br>
+
+
+<!--================PRODUCT BANNER====================-->
+  <div class="p-banner">
+    <h1>Medical Products</h1>
+    <br>
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button id="search-button">Search</button>
+    </div>
+  </div>
+  <div class="filter">
+    <select id="sort-select">
+      <option value="default">Sort By</option>
+      <option value="price-low-high">Price: Low to High</option>
+      <option value="price-high-low">Price: High to Low</option>
+    </select>
+  </div>
+
+  <section class="sec">
+    <div class="products">
+
+      <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Medicine/surgical.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Surgical Scrubs</div>
+        <div class="box">
+          <div class="price">₱1100</div>
+          <button class="btn" onclick="addToCart({ name: 'Surgical Scrubs', price: 1100, image: 'img/Medicine/surgical.png' })">Add to Cart</button>
+        </div>
+    </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/urinecap.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Urine Specimen Cup</div>
+        <div class="box">
+          <div class="price">₱500</div>
+          <button class="btn" onclick="addToCart({ name: 'Urine Specimen Cup', price: 500, image: 'img/Medicine/urinecap.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/dictionary.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Dictionary</div>
+        <div class="box">
+          <div class="price">₱1990</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Dictionary', price: 1990, image: 'img/Medicine/dictionary.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/thermometer.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Thermometer</div>
+        <div class="box">
+          <div class="price">₱1330</div>
+          <button class="btn" onclick="addToCart({ name: 'Thermometer', price: 1330, image: 'img/Medicine/thermometer.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/tape.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Surgical Tape</div>
+        <div class="box">
+          <div class="price">₱89</div>
+          <button class="btn" onclick="addToCart({ name: 'Surgical Tape', price: 89, image: 'img/Medicine/tape.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Medicine/sthetoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Sthetoscope</div>
+        <div class="box">
+          <div class="price">₱2000</div>
+          <button class="btn" onclick="addToCart({ name: 'Sthetoscope', price: 2000, image: 'img/Medicine/sthetoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/safetygoogles.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Eye Shields.</div>
+        <div class="box">
+          <div class="price">₱800</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Eye Shields', price: 800, image: 'img/Medicine/safetygoogles.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/mbag.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">First Aid Kit</div>
+        <div class="box">
+          <div class="price">₱1570</div>
+          <button class="btn" onclick="addToCart({ name: 'First Aid Kit', price: 1570, image: 'img/Medicine/mbag.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/pulse.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Pulse Oximeter</div>
+        <div class="box">
+          <div class="price">₱2100</div>
+          <button class="btn" onclick="addToCart({ name: 'Pulse Oximeter', price: 2100, image: 'img/Medicine/pulse.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/penlight.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Penlight</div>
+        <div class="box">
+          <div class="price">₱890</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Penlight', price: 890, image: 'img/Medicine/penlight.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/othoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Otoscope</div>
+        <div class="box">
+          <div class="price">₱2300</div>
+          <button class="btn" onclick="addToCart({ name: 'Otoscope', price: 2300, image: 'img/Medicine/othoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/ophthalmoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Opthalmoscope</div>
+        <div class="box">
+          <div class="price">₱2350</div>
+          <button class="btn" onclick="addToCart({ name: 'Opthalmoscope', price: 2350, image: 'img/Medicine/ophthalmoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/highlighters.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Highlighters</div>
+        <div class="box">
+          <div class="price">₱150</div>
+          <button class="btn" onclick="addToCart({ name: 'Highlighters', price: 150, image: 'img/Medicine/highlighters.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/gloves.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Gloves</div>
+        <div class="box">
+          <div class="price">₱300</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Gloves', price: 300, image: 'img/Medicine/gloves.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/geniometer.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Geniometer</div>
+        <div class="box">
+          <div class="price">₱2000</div>
+          <button class="btn" onclick="addToCart({ name: 'Geniometer', price: 2000, image: 'img/Medicine/geniometer.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/disection.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Disection Kit</div>
+        <div class="box">
+          <div class="price">₱1505</div>
+          <button class="btn" onclick="addToCart({ name: 'Disection Kit', price:1505, image: 'img/Medicine/disection.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/coat.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Laboratory Coat</div>
+        <div class="box">
+          <div class="price">₱1100</div>
+          <button class="btn" onclick="addToCart({ name: 'Laboratory Coat', price: 1100, image: 'img/Medicine/coat.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/bloodmeasure.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Sphygmomanometer</div>
+        <div class="box">
+          <div class="price">₱2200</div>
+          <button class="btn" onclick="addToCart({ name: 'Sphygmomanometer', price: 2200, image: 'img/Medicine/bloodmeasure.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/caliper.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Caliper</div>
+        <div class="box">
+          <div class="price">₱1800</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Caliper', price: 1800, image: 'img/Medicine/caliper.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/bloodtube.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Citrate Tubes</div>
+        <div class="box">
+          <div class="price">₱700</div>
+          <button class="btn" onclick="addToCart({ name: 'Citrate Tubes', price: 700, image: 'img/Medicine/bloodtube.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+    </div>
+  </section>
+
+
+  <div id="search-message" class="search-message"></div>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+
+<!--==footer=================================================================-->
+<footer>
+  <div class="footer-container">
+
+      <div class="footer-logo-container">
+          <!--logo-------------->
+          <div class="footer-logo">
+              <img src="img/logo.png">
+          </div>
+          <span>&#169; 2021 College Saver.</span>
+          <!--social-links------>
+          <div class="footer-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+      </div>
+
+
+
+
+
+      <!--footer-menu---------------------------------------->
+      <div class="footer-menu">
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>MAIN MENU</strong>
+              <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="product.html">Products</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Categories</strong>
+              <ul>
+                  <li><a href="medical.html">Medical Products</a></li>
+                  <li><a href="IT.html">IT Products</a></li>
+                  <li><a href="engineering.html">Engineering Products</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>IMPORTANT LINKS</strong>
+              <ul>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Shipping Details</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Contact</strong>
+              <ul>
+                  <li>info@collegesaver.com</li>
+                  <li>+63-965-785-9876</li>
+              </ul>
+          </div>
+
+          
+          
+      </div>
+
+
+   
+  </div>
+  </footer>
+  <span class="copyright">Copyright 2021 - College Saver</span>
+
+</html>

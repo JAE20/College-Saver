@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>College Saver</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <!--fav-icon==============================================-->
+    <link rel="shortcut icon" href="images/fav-icon.png"/>
+    <!--using FontAwesome=====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/eeb0659f60.js" crossorigin="anonymous"></script>
+    <!--IMPORT Poppins======================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--==navigation-bar==============================================-->
+  <nav class="navigation">
+    <!--logo------->
+    <div id="logo">
+        <img src="img/Logo.png" alt="Logo">
+        <a href="home.html" class="logo">College Saver</a>
+    </div>
+    <!--menu------->
+    <ul class="menu">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <!--right-->
+    <div class="right-elements">
+        <!--search-->
+        <a href="#" class="search"><i class="fas fa-search"></i></a>
+        
+        <!--user---->
+        <a href="user.html" class="user"><i class="far fa-user"></i></a>
+
+        <!--cart---->
+        <div class="cart-icon" onclick="toggleCart()">
+          <div class="cart-count" id="cartCount">0</div>
+          <i class="fas fa-shopping-cart"></i>
+          
+        </div>
+    </div>
+ </nav>
+
+  <div class="cart-container" id="cartContainer">
+    <div class="cart-close" onclick="toggleCart()">
+      <i class="fas fa-times"></i>
+      
+
+    </div>
+    <br><br>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+   
+    <div id="emptyCartMessage" class="empty-cart-message">No product is added in the cart</div>
+    <div class="cart-summary">
+      
+      <div class="total" id="total">Total: &#83690</div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+
+
+  <div class="banner">
+      <h1 class="catchphrase">Upgrade Your College Journey!<br></h1>
+      <p class="discountp">Save 20% on All College School Supplies</p>
+  </div>
+
+  <!-----CATEGORIES=================----->
+  <div id="box-categories">
+    <h2 class="category-title">Categories</h2>
+    <br>
+    <div class="category-boxes">
+        <a href="medical.html" class="cbox">
+            <i class="fa-solid fa-briefcase-medical"></i>
+            <h3>Medical Products</h3>
+            <p>Find essential school supplies tailored for medical students.</p>
+        </a>
+
+        <a href="IT.html" class="cbox">
+            <i class="fa-solid fa-laptop"></i>
+            <h3>IT items</h3>
+            <p>Discover a wide range of school supplies catered specifically to IT and computer science students.</p>
+        </a>
+          
+        <a href="engineering.html" class="cbox">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <h3>Engineering Items</h3>
+            <p>Explore our collection of school supplies tailored for engineering students.</p>
+        </a>
+    </div>
+  </div>
+  <br>
+
+<!-----==============FEATURED PRODUCTS=================----->
+  <h1 class="pheading">Featured Products</h1>
+  <section class="sec">
+    <div class="products">
+
+      <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Medicine/sthetoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Stethoscope</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Stethoscope', price: 1000, image: 'img/Medicine/sthetoscope.png' })">Add to Cart</button>
+        </div>
+    </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/compass.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Metal Compass</div>
+        <div class="box">
+          <div class="price">₱30</div>
+          <button class="btn" onclick="addToCart({ name: 'Metal Compass', price: 30, image: 'img/Engineering/Compass.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/gloves.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Surgical Gloves</div>
+        <div class="box">
+          <div class="price">₱70</div>
+          <button class="btn" onclick="addToCart({ name: 'Surgical Gloves', price: 70, image: 'img/Medicine/gloves.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/breadboard.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Breadboard</div>
+        <div class="box">
+          <div class="price">₱700</div>
+          <button class="btn" onclick="addToCart({ name: 'Breadboard', price: 700, image: 'img/Engineering/breadboard.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/cable.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Micro USB Cable</div>
+        <div class="box">
+          <div class="price">₱80</div>
+          <button class="btn" onclick="addToCart({ name: 'Micro USB Cable', price: 80, image: 'img/IT/cable.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/bag.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Engineering Bag</div>
+        <div class="box">
+          <div class="price">₱300</div>
+          <button class="btn" onclick="addToCart({ name: 'Engineering Bag', price: 300, image: 'img/Engineering/bag.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/hdmi.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">HDMI</div>
+        <div class="box">
+          <div class="price">P123</div>
+          <button class="btn" onclick="addToCart({ name: 'HDMI', price: 123, image: 'img/IT/hdmi.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/mbag.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">First Aid Kit</div>
+        <div class="box">
+          <div class="price">P500</div>
+          <button class="btn" onclick="addToCart({ name: 'First Aid Kit', price: 500, image: 'img/Medidcine/mbag.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+    </div>
+  </section>
+
+  <br>
+  
+  <div class="promo-banner">
+    <img src="img/pb.png">
+    <div class="promo-content">
+      <h3 class="promo-title">Limited Time Offer!</h3>
+      <p class="promo-description">Get 20% off on all products. Shop now!</p>
+      <a href="product.html" class="promo-button">Shop Now</a>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+  
+
+
+</body>
+
+<!--==footer=================================================================-->
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-logo-container">
+            <!--logo-------------->
+            <div class="footer-logo">
+                <img src="img/logo.png">
+            </div>
+            <span>&#169; 2021 College Saver.</span>
+            <!--social-links------>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--footer-menu---------------------------------------->
+        <div class="footer-menu">
+
+            <!--footer-menu-box----->
+            <div class="footer-menu-box">
+                <strong>MAIN MENU</strong>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!--footer-menu-box----->
+            <div class="footer-menu-box">
+                <strong>Categories</strong>
+                <ul>
+                    <li><a href="medical.html">Medical Products</a></li>
+                    <li><a href="IT.html">IT Products</a></li>
+                    <li><a href="engineering.html">Engineering Products</a></li>
+                </ul>
+            </div>
+
+            <!--footer-menu-box----->
+            <div class="footer-menu-box">
+                <strong>IMPORTANT LINKS</strong>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Details</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <!--footer-menu-box----->
+            <div class="footer-menu-box">
+                <strong>Contact</strong>
+                <ul>
+                    <li>info@collegesaver.com</li>
+                    <li>+63-965-785-9876</li>
+                </ul>
+            </div>
+
+            
+            
+        </div>
+
+
+     
+    </div>
+    </footer>
+    <span class="copyright">Copyright 2021 - College Saver</span>
+
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="style.css">
+  <!--using FontAwesome=====================================-->
+  <script src="https://kit.fontawesome.com/eeb0659f60.js" crossorigin="anonymous"></script>
+  <!--IMPORT Poppins======================================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--================NAV BAR====================-->
+    <!--==navigation-bar==============================================-->
+  <nav class="navigation">
+    <!--logo------->
+    <div id="logo">
+        <img src="img/Logo.png" alt="Logo">
+        <a href="home.html" class="logo">College Saver</a>
+    </div>
+    <!--menu------->
+    <ul class="menu">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <!--right-->
+    <div class="right-elements">
+        <!--search-->
+        <a href="#" class="search"><i class="fas fa-search"></i></a>
+        
+        <!--user---->
+        <a href="user.html" class="user"><i class="far fa-user"></i></a>
+
+        <!--cart---->
+        <div class="cart-icon" onclick="toggleCart()">
+          <div class="cart-count" id="cartCount">0</div>
+          <i class="fas fa-shopping-cart"></i>
+          
+        </div>
+    </div>
+ </nav>
+
+  <div class="cart-container" id="cartContainer">
+    <div class="cart-close" onclick="toggleCart()">
+      <i class="fas fa-times"></i>
+      
+
+    </div>
+    <br><br>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+   
+    <div id="emptyCartMessage" class="empty-cart-message">No product is added in the cart</div>
+    <div class="cart-summary">
+      
+      <div class="total" id="total">Total: &#83690</div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+
+
+<!--================PRODUCT BANNER====================-->
+  <div class="p-banner">
+    <h1>Browse our Products Here</h1>
+    <br>
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button id="search-button">Search</button>
+    </div>
+  </div>
+
+  <div class="filter">
+    <div class="category-buttons">
+      <button class="category-button" data-category="all">All</button>
+      <button class="category-button" data-category="Medical Products">Medical</button>
+      <button class="category-button" data-category="IT Products">IT</button>
+      <button class="category-button" data-category="Engineering Products">Engineering</button>
+    </div>
+    <select id="sort-select">
+      <option value="default">Sort By</option>
+      <option value="price-low-high">Price: Low to High</option>
+      <option value="price-high-low">Price: High to Low</option>
+    </select>
+  </div>
+  
+  <section class="sec">
+    <div class="products">
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Medicine/sthetoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Stethoscope</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Stethoscope', price: 1000, image: 'img/Medicine/sthetoscope.png' })">Add to Cart</button>
+        </div>
+     </div>
+      <!--  card end  -->
+  
+  
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/gloves.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Surgical Gloves</div>
+        <div class="box">
+          <div class="price">₱70</div>
+          <button class="btn" onclick="addToCart({ name: 'Surgical Gloves', price: 70, image: 'img/Medicine/gloves.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/multimeter.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Multimeter</div>
+        <div class="box">
+          <div class="price">₱200</div>
+          <button class="btn" onclick="addToCart({ name: 'Multimeter', price: 200, image: 'img/Engineering/multimeter.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+
+      <!--  card start   -->
+    <div class="card" data-category="Engineering Products">
+      <span class="discount">20%</span>
+      <div class="img"><img src="img/Engineering/bag.png"></div>
+      <div class="cty">Engineering Products</div>
+      <div class="title">Engineering Bag</div>
+      <div class="box">
+        <div class="price">₱700</div>
+        <button class="btn" onclick="addToCart({ name: 'Engineering Bag', price: 700, image: 'img/Engineering/bag.png' })">Add to Cart</button>
+      </div>
+  </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Engineering Products">
+      <div class="img"><img src="img/Engineering/compass.png"></div>
+      <div class="cty">Engineering Products</div>
+      <div class="title">Compass</div>
+      <div class="box">
+        <div class="price">₱30</div>
+        <button class="btn" onclick="addToCart({ name: 'Compass', price: 30, image: 'img/Engineering/compass.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Engineering Products">
+      <div class="img"><img src="img/Engineering/ballpen.png"></div>
+      <div class="cty">Engineering Products</div>
+      <div class="title">Ballpen</div>
+      <div class="box">
+        <div class="price">₱20</div>
+        <button class="btn" onclick="addToCart({ name: 'Ballpen', price: 20, image: 'img/Engineering/ballpen.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Engineering Products">
+      <div class="img"><img src="img/Engineering/breadboard.png"></div>
+      <div class="cty">Engineering Products</div>
+      <div class="title">Breadboard</div>
+      <div class="box">
+        <div class="price">₱700</div>
+        <button class="btn" onclick="addToCart({ name: 'Breadboard', price: 700, image: 'img/Engineering/breadboard.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/cable.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">USB Cable</div>
+        <div class="box">
+          <div class="price">₱80</div>
+          <button class="btn" onclick="addToCart({ name: 'USB Cable', price: 80, image: 'img/IT/cable.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+
+      <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+      <span class="discount">20%</span>
+      <div class="img"><img src="img/Medicine/surgical.png"></div>
+      <div class="cty">Medical Products</div>
+      <div class="title">Surgical Scrubs</div>
+      <div class="box">
+        <div class="price">₱1100</div>
+        <button class="btn"  onclick="addToCart({ name: 'Surgical Scrubs', price: 1100, image: 'img/Medicine/surgical.png' })">Add to Cart</button>
+      </div>
+  </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+      <div class="img"><img src="img/Medicine/urinecap.png"></div>
+      <div class="cty">Medical Products</div>
+      <div class="title">Urine Specimen Cup</div>
+      <div class="box">
+        <div class="price">₱500</div>
+        <button class="btn" onclick="addToCart({ name: 'Surgical Scrubs', price: 1100, image: 'img/Medicine/surgical.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+      <div class="img"><img src="img/Medicine/dictionary.png"></div>
+      <div class="cty">Medical Products</div>
+      <div class="title">Medical Dictionary</div>
+      <div class="box">
+        <div class="price">1990</div>
+        <button class="btn" onclick="addToCart({ name: 'Medical Dictionary', price: 1990, image: 'img/Medicine/dictionary.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+
+    <!--  card start   -->
+    <div class="card" data-category="Medical Products">
+      <div class="img"><img src="img/Medicine/thermometer.png"></div>
+      <div class="cty">Medical Products</div>
+      <div class="title">Thermometer</div>
+      <div class="box">
+        <div class="price">₱1330</div>
+        <button class="btn" onclick="addToCart({ name: 'Thermometer', price: 1330, image: 'img/Medicine/thermometer.png' })">Add to Cart</button>
+      </div>
+    </div>
+      <!--  card end  -->
+
+
+    <div class="card" data-category="IT Products">
+      <span class="discount">20%</span>
+      <div class="img"><img src="img/IT/keyboard.png"></div>
+      <div class="cty">IT Products</div>
+      <div class="title">Keyboard</div>
+      <div class="box">
+        <div class="price">₱445</div>
+        <button class="btn" onclick="addToCart({ name: 'Keyboard', price: 445, image: 'img/IT/keyboard.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+  
+    <!--  card start   -->
+    <div class="card" data-category="IT Products">
+      <div class="img"><img src="img/IT/headphones.png"></div>
+      <div class="cty">IT Products</div>
+      <div class="title">Headphones</div>
+      <div class="box">
+        <div class="price">₱300</div>
+          <button class="btn" onclick="addToCart({ name: 'Headphones', price: 300, image: 'img/IT/headphones.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+  
+    <!--  card start   -->
+    <div class="card" data-category="IT Products">
+      <div class="img"><img src="img/IT/hdmi.png"></div>
+      <div class="cty">IT Products</div>
+      <div class="title">HDMI</div>
+      <div class="box">
+        <div class="price">₱123</div>
+        <button class="btn" onclick="addToCart({ name: 'HDMI', price: 123, image: 'img/IT/hdmi.png' })">Add to Cart</button>
+      </div>
+    </div>
+    <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/hardrive.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Hardrive</div>
+        <div class="box">
+          <div class="price">₱2000</div>
+          <button class="btn" onclick="addToCart({ name: 'Hardrive', price: 2000, image: 'img/IT/hardrive.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/tape.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Surgical Tape</div>
+        <div class="box">
+          <div class="price">₱89</div>
+          <button class="btn" onclick="addToCart({ name: 'Surgical Tape', price: 89, image: 'img/Medicine/tape.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Medicine/sthetoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Sthetoscope</div>
+        <div class="box">
+          <div class="price">₱2000</div>
+          <button class="btn" onclick="addToCart({ name: 'Sthetoscope', price: 2000, image: 'img/Medicine/sthetoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/safetygoogles.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Eye Shields</div>
+        <div class="box">
+          <div class="price">₱800</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Eye Shields', price: 800, image: 'img/Medicine/safetygoogles.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/mbag.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">First Aid Kit</div>
+        <div class="box">
+          <div class="price">₱1570</div>
+          <button class="btn" onclick="addToCart({ name: 'First Aid Kit', price: 1570, image: 'img/Medicine/mbag.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/pulse.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Pulse Oximeter</div>
+        <div class="box">
+          <div class="price">₱2100</div>
+          <button class="btn" onclick="addToCart({ name: 'Pulse Oximeter', price: 2100, image: 'img/Medicine/pulse.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/ruler.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Stainless Steel Ruler Set</div>
+        <div class="box">
+          <div class="price">₱50</div>
+          <button class="btn" onclick="addToCart({ name: 'Stainless Steel Ruler Set', price: 50, image: 'img/Engineering/ruler.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/scical.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Scientific Calculator</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Scientific Calculator', price: 1000, image: 'img/Engineering/scical.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/wirestripper.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Wirestripper</div>
+        <div class="box">
+          <div class="price">₱250</div>
+          <button class="btn" onclick="addToCart({ name: 'Wirestripper', price: 250, image: 'img/Engineering/wirestripper.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/triangle.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Triangle Ruler</div>
+        <div class="box">
+          <div class="price">₱18</div>
+          <button class="btn" onclick="addToCart({ name: 'Triangle Ruler', price: 18, image: 'img/Engineering/triangle.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/graphics.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Graphics Card</div>
+        <div class="box">
+          <div class="price">₱3000</div>
+          <button class="btn" onclick="addToCart({ name: 'Graphics Card', price: 3000, image: 'img/IT/graphics.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/flashdrive.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Flashdrive</div>
+        <div class="box">
+          <div class="price">₱300</div>
+          <button class="btn" onclick="addToCart({ name: 'Flashdrive ', price: 300, image: 'img/IT/flashdrive.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/ethernet.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Ethernet Cable</div>
+        <div class="box">
+          <div class="price">₱150</div>
+          <button class="btn" onclick="addToCart({ name: 'Ethernet Cable', price: 150, image: 'img/IT/ethernet.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/crimping.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Crimping Tool</div>
+        <div class="box">
+          <div class="price">₱360</div>
+          <button class="btn" onclick="addToCart({ name: 'Crimping Tool', price: 360, image: 'img/IT/crimping.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/anti.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Anti Static Wrist Strap</div>
+        <div class="box">
+          <div class="price">₱250</div>
+          <button class="btn" onclick="addToCart({ name: 'Anti Static Wrist Strap', price: 250, image: 'img/IT/anti.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/penlight.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Medical Penlight</div>
+        <div class="box">
+          <div class="price">₱890</div>
+          <button class="btn" onclick="addToCart({ name: 'Medical Penlight', price: 890, image: 'img/Medicine/penlight.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/othoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Otoscope</div>
+        <div class="box">
+          <div class="price">₱2300</div>
+          <button class="btn" onclick="addToCart({ name: 'Otoscope', price: 2300, image: 'img/Medicine/othoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/ophthalmoscope.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Opthalmoscope</div>
+        <div class="box">
+          <div class="price">₱2350</div>
+          <button class="btn" onclick="addToCart({ name: 'Opthalmoscope', price: 2350, image: 'img/Medicine/ophthalmoscope.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/highlighters.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Highlighters</div>
+        <div class="box">
+          <div class="price">₱150</div>
+          <button class="btn" onclick="addToCart({ name: 'Highlighters', price: 150, image: 'img/Medicine/highlighters.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/geniometer.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Geniometer</div>
+        <div class="box">
+          <div class="price">₱2000</div>
+          <button class="btn" onclick="addToCart({ name: 'Geniometer ', price: 2000, image: 'img/Medicine/geniometer.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/surveytripod.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Survey Tripod</div>
+        <div class="box">
+          <div class="price">₱6000</div>
+          <button class="btn" onclick="addToCart({ name: 'Survey Tripod', price: 6000, image: 'img/Engineering/surveytripod.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/screwdriver.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Mini Screwdriver Set</div>
+        <div class="box">
+          <div class="price">₱80</div>
+          <button class="btn" onclick="addToCart({ name: 'Mini Screwdriver Set', price: 80, image: 'img/Engineering/screwdriver.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/triangular.jpg"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Triangular Scale Ruler</div>
+        <div class="box">
+          <div class="price">₱240</div>
+          <button class="btn" onclick="addToCart({ name: 'Triangular Scale Ruler', price: 240, image: 'img/Engineering/triangular.jpg' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/safety.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Safety Goggles</div>
+        <div class="box">
+          <div class="price">₱120</div>
+          <button class="btn" onclick="addToCart({ name: 'Safety Goggles', price: 120, image: 'img/Engineering/safety.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/reference.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Reference Books</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Reference Books', price: 1000, image: 'img/Engineering/reference.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/disection.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Disection Kit</div>
+        <div class="box">
+          <div class="price">₱1505</div>
+          <button class="btn" onclick="addToCart({ name: 'Disection Kit', price: 1505, image: 'img/Medicine/disection.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/coat.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Laboratory Coat</div>
+        <div class="box">
+          <div class="price">₱1100</div>
+          <button class="btn" onclick="addToCart({ name: 'Laboratory Coat', price: 1100, image: 'img/Medicine/coat.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/bloodmeasure.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Sphygmomanometer</div>
+        <div class="box">
+          <div class="price">₱2200</div>
+          <button class="btn" onclick="addToCart({ name: 'Sphygmomanometer', price: 2200, image: 'img/Medicine/bloodmeasure.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/caliper.jpg"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Med Digital Caliper</div>
+        <div class="box">
+          <div class="price">₱1800</div>
+          <button class="btn" onclick="addToCart({ name: 'Med Digital Caliper', price: 1800, image: 'img/Medicine/caliper.jpg' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Medical Products">
+        <div class="img"><img src="img/Medicine/bloodtube.png"></div>
+        <div class="cty">Medical Products</div>
+        <div class="title">Citrate Tubes</div>
+        <div class="box">
+          <div class="price">₱700</div>
+          <button class="btn" onclick="addToCart({ name: 'Citrate Tubes', price: 700, image: 'img/Medicine/bloodtube.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/aftereffects.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Adobe After Effects Software</div>
+        <div class="box">
+          <div class="price">₱1100</div>
+          <button class="btn" onclick="addToCart({ name: 'Adobe After Effects Software', price: 1100, image: 'img/IT/aftereffects.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/Lantester.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">LAN Cable Tester</div>
+        <div class="box">
+          <div class="price">₱200</div>
+          <button class="btn" onclick="addToCart({ name: 'LAN Cable Tester', price: 200, image: 'img/IT/Lantester.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/laptop.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Laptop</div>
+        <div class="box">
+          <div class="price">₱20000</div>
+          <button class="btn" onclick="addToCart({ name: 'Laptop', price: 20000, image: 'img/IT/laptop.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/mouse.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Mouse</div>
+        <div class="box">
+          <div class="price">₱100</div>
+          <button class="btn" onclick="addToCart({ name: 'Mouse', price: 100, image: 'img/IT/mouse.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/networkswitch.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Ethernet Switch</div>
+        <div class="box">
+          <div class="price">₱335</div>
+          <button class="btn" onclick="addToCart({ name: 'Ethernet Switch', price: 335, image: 'img/IT/networkswitch.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/photoshop.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Adobe Photoshop CS6</div>
+        <div class="box">
+          <div class="price">₱310</div>
+          <button class="btn" onclick="addToCart({ name: 'Adobe Photoshop CS6', price: 310, image: 'img/IT/photoshop.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/rj45.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">RJ45 Connector</div>
+        <div class="box">
+          <div class="price">₱60</div>
+          <button class="btn" onclick="addToCart({ name: 'RJ45 Connector', price: 60, image: 'img/IT/rj45.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/printer.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Printer</div>
+        <div class="box">
+          <div class="price">₱7000</div>
+          <button class="btn" onclick="addToCart({ name: 'Printer', price: 7000, image: 'img/IT/printer.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/usbc.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">USB Cable Type C Adapter</div>
+        <div class="box">
+          <div class="price">₱100</div>
+          <button class="btn" onclick="addToCart({ name: 'USB Cable Type C Adapter ', price: 100, image: 'img/IT/usbc.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="IT Products">
+        <div class="img"><img src="img/IT/webcam.png"></div>
+        <div class="cty">IT Products</div>
+        <div class="title">Webcam</div>
+        <div class="box">
+          <div class="price">₱400</div>
+          <button class="btn" onclick="addToCart({ name: 'Webcam ', price: 400, image: 'img/IT/webcam.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/protractor.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Protractor</div>
+        <div class="box">
+          <div class="price">₱20</div>
+          <button class="btn" onclick="addToCart({ name: 'Protractor ', price: 20, image: 'img/Engineering/protractor.png'})">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+       <!--  card start   -->
+      
+       <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/jumpwire.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Jumpwire</div>
+        <div class="box">
+          <div class="price">₱15</div>
+          <button class="btn" onclick="addToCart({ name: 'Jumpwire;', price: 15, image: 'img/Engineering/jumpwire.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/pencil.jpg"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">3pc Mechanical Pencils</div>
+        <div class="box">
+          <div class="price">₱120</div>
+          <button class="btn" onclick="addToCart({ name: '3pc Mechanical Pencils ;', price: 120, image: 'img/Engineering/pencil.jpg'})">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/notebook.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Notebook</div>
+        <div class="box">
+          <div class="price">₱50</div>
+          <button class="btn" onclick="addToCart({ name: 'Notebook ;', price: 50, image: 'img/Engineering/notebook.png'})">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/highlighter.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Highlighter Pens</div>
+        <div class="box">
+          <div class="price">₱200</div>
+          <button class="btn" onclick="addToCart({ name: 'Highlighter Pens', price: 200, image: 'img/Engineering/highlighter.png'})">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/eraser.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Eraser</div>
+        <div class="box">
+          <div class="price">₱15</div>
+          <button class="btn" onclick="addToCart({ name: 'Eraser', price: 15, image: 'img/Engineering/eraser.png'})">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+    </div>
+
+      
+
+  <div id="search-message" class="search-message"></div>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+
+<!--==footer=================================================================-->
+<footer>
+  <div class="footer-container">
+
+      <div class="footer-logo-container">
+          <!--logo-------------->
+          <div class="footer-logo">
+              <img src="img/logo.png">
+          </div>
+          <span>&#169; 2021 College Saver.</span>
+          <!--social-links------>
+          <div class="footer-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+      </div>
+
+
+
+
+
+      <!--footer-menu---------------------------------------->
+      <div class="footer-menu">
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>MAIN MENU</strong>
+              <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="product.html">Products</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Categories</strong>
+              <ul>
+                  <li><a href="medical.html">Medical Products</a></li>
+                  <li><a href="IT.html">IT Products</a></li>
+                  <li><a href="engineering.html">Engineering Products</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>IMPORTANT LINKS</strong>
+              <ul>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Shipping Details</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Contact</strong>
+              <ul>
+                  <li>info@collegesaver.com</li>
+                  <li>+63-965-785-9876</li>
+              </ul>
+          </div>
+
+          
+          
+      </div>
+
+
+   
+  </div>
+</footer>
+  <span class="copyright">Copyright 2021 - College Saver</span>
+
+</html>

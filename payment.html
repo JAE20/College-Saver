@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <!--fav-icon==============================================-->
+    <link rel="shortcut icon" href="images/fav-icon.png" />
+    <!--using FontAwesome=====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/eeb0659f60.js" crossorigin="anonymous"></script>
+    <!--IMPORT Poppins======================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Header styles */
+   
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(img/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+
+  }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  background-color: #fff;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;      
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+    .forms {
+      flex: 1;
+      padding: 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .payment {
+      flex: 1;
+      padding: 40px;
+      background-color: #f9f9f9;
+      border-left: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    #payment-methods {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    
+
+    .payment-option.selected {
+        border: 2px solid blue;
+    }
+
+    img {
+      width: 50px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+  </style>
+</head>
+
+<body>
+
+    <nav class="navigation">
+        <!--logo------->
+        <div id="logo">
+            <img src="img/Logo.png" alt="Logo">
+            <a href="home.html" class="logo">College Saver</a>
+        </div>
+        <!--menu------->
+        <ul class="menu">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!--right-->
+        <div class="right-elements">
+            <!--search-->
+            <a href="#" class="search"><i class="fas fa-search"></i></a>
+
+            <!--user---->
+            <a href="user.html" class="user"><i class="far fa-user"></i></a>
+
+            <!--cart---->
+            <div class="cart-icon" onclick="toggleCart()">
+                <div class="cart-count" id="cartCount">0</div>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-container" id="cartContainer">
+        <div class="cart-close" onclick="toggleCart()">
+            <i class="fas fa-times"></i>
+
+
+        </div>
+        <br><br>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <div id="emptyCartMessage" class="empty-cart-message">No product is added in the cart</div>
+        <div class="cart-summary">
+
+            <div class="total" id="total">Total: &#83690</div>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <div class="container">
+        <div class="forms">
+            <h2>Shipping Details</h2>
+
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="region">Region</label>
+                    <input type="text" id="region" name="region" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="home-address">Home/Appartment Address</label>
+                    <input type="text" id="home-address" name="home-address" required>
+                </div>
+
+                <button type="submit" onclick="processPayment(event)">Place Order</button>
+                
+            </form>
+        </div>
+
+        <div class="payment">
+            <h2>Payment Method</h2>
+            <div id="payment-methods">
+              <div class="payment-option" onclick="selectPayment('credit-card', this)">
+                  <img src="img/visa.png" alt="Credit Card">
+                  <img src="img/mastercard.png" alt="Credit Card">
+                  <span>Pay with Credit Card</span>
+              </div>
+              <br>
+              <div class="payment-option" onclick="selectPayment('paypal', this)">
+                  <img src="img/paypal.png" alt="PayPal">
+                  <span>Pay with PayPal</span>
+              </div>
+              <br>
+
+              <div class="payment-option" onclick="selectPayment('cod', this)">
+                  <img src="img/cod.png" alt="COD">
+                  <span>Cash on Delivery (COD)</span>
+              </div>
+              <br>
+
+              <div class="payment-option" onclick="selectPayment('gcash', this)">
+                  <img src="img/gcash.jpg" alt="Gcash">
+                  <span>Pay with Gcash</span>
+              </div>
+          </div>
+          
+        </div>
+        
+    </div>
+
+    
+
+    <script>
+      function selectPayment(paymentOption, element) {
+          // Remove the "selected" class from all payment options
+          var paymentOptions = document.getElementsByClassName("payment-option");
+          for (var i = 0; i < paymentOptions.length; i++) {
+              paymentOptions[i].classList.remove("selected");
+          }
+          
+          // Add the "selected" class to the clicked payment option
+          element.classList.add("selected");
+          
+          // Add any logic here if needed for the selected payment option
+          
+          // Redirect to the payment.html page or perform any other action
+        
+    }
+  </script>
+
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

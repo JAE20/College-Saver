@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <!--using FontAwesome=====================================-->
+  <script src="https://kit.fontawesome.com/eeb0659f60.js" crossorigin="anonymous"></script>
+  <!--IMPORT Poppins======================================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!--================NAV BAR====================-->
+  <nav class="navigation">
+      <!--logo------->
+      <div id="logo">
+          <img src="img/Logo.png" alt="Logo">
+          <a href="home.html" class="logo">College Saver</a>
+      </div>
+      <!--menu------->
+      <ul class="menu">
+          <li><a href="home.html" >Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="product.html" class="active">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!--right-->
+      <div class="right-elements">
+          <!--search-->
+          <a href="#" class="search"><i class="fas fa-search"></i></a>
+          
+          <!--user---->
+          <a href="login.html" class="user"><i class="far fa-user"></i></a>
+
+          <!--cart---->
+          <div class="cart-icon" onclick="toggleCart()">
+            <div class="cart-count" id="cartCount">0</div>
+            <i class="fas fa-shopping-cart"></i>
+            
+          </div>
+      </div>
+  </nav>
+
+
+<!--================PRODUCT BANNER====================-->
+<br>
+<br><br><br><br>
+  <div class="p-banner">
+    <h1>Engineering Products</h1>
+    <br>
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Search products...">
+      <button id="search-button">Search</button>
+    </div>
+  </div>
+
+  <div class="filter">
+    <select id="sort-select">
+      <option value="default">Sort By</option>
+      <option value="price-low-high">Price: Low to High</option>
+      <option value="price-high-low">Price: High to Low</option>
+    </select>
+  </div>
+
+  <div class="cart-container" id="cartContainer">
+    <div class="cart-close" onclick="toggleCart()">
+      <i class="fas fa-times"></i>
+      
+
+    </div>
+    <br><br>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+   
+    <div id="emptyCartMessage" class="empty-cart-message">No product is added in the cart</div>
+    <div class="cart-summary">
+      
+      <div class="total" id="total">Total: &#83690</div>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="products">
+
+      <!--  card start   -->
+    <div class="card" data-category="Engineering Products">
+        <span class="discount">20%</span>
+        <div class="img"><img src="img/Engineering/bag.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Engineering Bag</div>
+        <div class="box">
+          <div class="price">₱700</div>
+          <button class="btn" onclick="addToCart({ name: 'Engineering Bag;', price: 700, image: 'img/Engineering/bag.png' })">Add to Cart</button>
+        </div>
+    </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/compass.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Compass</div>
+        <div class="box">
+          <div class="price">₱30</div>
+          <button class="btn" onclick="addToCart({ name: 'Compass;', price: 30, image: 'img/Engineering/compass.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/ballpen.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Ballpen</div>
+        <div class="box">
+          <div class="price">₱20</div>
+          <button class="btn" onclick="addToCart({ name: 'Ballpen;', price: 20, image: 'img/Engineering/ballpen.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/breadboard.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Breadboard</div>
+        <div class="box">
+          <div class="price">₱700</div>
+          <button class="btn" onclick="addToCart({ name: 'Breadboard;', price: 700, image: 'img/Engineering/breadboard.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+  
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/jumpwire.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Jumpwire</div>
+        <div class="box">
+          <div class="price">₱15</div>
+          <button class="btn" onclick="addToCart({ name: 'Jumpwire;', price: 15, image: 'img/Engineering/jumpwire.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/multimeter.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Multimeter</div>
+        <div class="box">
+          <div class="price">₱200</div>
+          <button class="btn" onclick="addToCart({ name: 'Multimeter;', price: 200, image: 'img/Engineering/multimeter.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/ruler.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Stainless Steel Ruler Set</div>
+        <div class="box">
+          <div class="price">₱50</div>
+          <button class="btn" onclick="addToCart({ name: 'Stainless Steel Ruler Set;', price: 50, image: 'img/Engineering/ruler.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/scical.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Scientific Calculator</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Scientific Calculator;', price: 1000, image: 'img/Engineering/scical.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/wirestripper.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Wirestripper</div>
+        <div class="box">
+          <div class="price">₱250</div>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/triangle.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Triangle Ruler</div>
+        <div class="box">
+          <div class="price">₱18</div>
+          <button class="btn" onclick="addToCart({ name: 'Triangle Ruler;', price: 18, image: 'img/Engineering/triangle.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/surveytripod.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Survey Tripod</div>
+        <div class="box">
+          <div class="price">₱6000</div>
+          <button class="btn" onclick="addToCart({ name: 'Survey Tripod;', price: 6000, image: 'img/Engineering/surveytripod.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/screwdriver.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Mini Screwdriver Set</div>
+        <div class="box">
+          <div class="price">₱80</div>
+          <button class="btn" onclick="addToCart({ name: 'Mini Screwdriver Set;', price: 80, image: 'img/Engineering/screwdriver.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/triangular.jpg"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Triangular Scale Ruler</div>
+        <div class="box">
+          <div class="price">₱240</div>
+          <button class="btn" onclick="addToCart({ name: 'Triangular Scale Ruler;', price: 240, image: 'img/Engineering/triangular.jpg' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/safety.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Safety Goggles</div>
+        <div class="box">
+          <div class="price">₱120</div>
+          <button class="btn" onclick="addToCart({ name: 'Safety Goggles;', price: 120, image: 'img/Engineering/safety.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/reference.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Reference Books</div>
+        <div class="box">
+          <div class="price">₱1000</div>
+          <button class="btn" onclick="addToCart({ name: 'Reference Books', price: 1000, image: 'img/Engineering/reference.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/protractor.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Protractor</div>
+        <div class="box">
+          <div class="price">₱20</div>
+          <button class="btn" onclick="addToCart({ name: 'Protractor', price: 20, image: 'img/Engineering/protractor.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/pencil.jpg"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">3pc Mechanical Pencils</div>
+        <div class="box">
+          <div class="price">₱120</div>
+          <button class="btn" onclick="addToCart({ name: '3pc Mechanical Pencils', price: 120, image: 'img/Engineering/pencil.jpg' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/notebook.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Notebook</div>
+        <div class="box">
+          <div class="price">₱50</div>
+          <button class="btn" onclick="addToCart({ name: 'Notebook', price: 50, image: 'img/Engineering/notebook.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/highlighter.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Highlighter Pens</div>
+        <div class="box">
+          <div class="price">₱200</div>
+          <button class="btn" onclick="addToCart({ name: 'Highlighter Pens', price: 200, image: 'img/Engineering/highlighter.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+
+      <!--  card start   -->
+      <div class="card" data-category="Engineering Products">
+        <div class="img"><img src="img/Engineering/eraser.png"></div>
+        <div class="cty">Engineering Products</div>
+        <div class="title">Eraser</div>
+        <div class="box">
+          <div class="price">₱15</div>
+          <button class="btn" onclick="addToCart({ name: 'Eraser', price:15, image: 'img/Engineering/eraser.png' })">Add to Cart</button>
+        </div>
+      </div>
+      <!--  card end  -->
+    </div>
+  </section>
+
+
+  <div id="search-message" class="search-message"></div>
+
+  <script src="cart.js"></script>
+
+  <script src="script.js"></script>
+  
+</body>
+
+<!--==footer=================================================================-->
+<footer>
+  <div class="footer-container">
+
+      <div class="footer-logo-container">
+          <!--logo-------------->
+          <div class="footer-logo">
+              <img src="img/logo.png">
+          </div>
+          <span>&#169; 2021 College Saver.</span>
+          <!--social-links------>
+          <div class="footer-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+      </div>
+
+
+
+
+
+      <!--footer-menu---------------------------------------->
+      <div class="footer-menu">
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>MAIN MENU</strong>
+              <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="product.html">Products</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Categories</strong>
+              <ul>
+                  <li><a href="medical.html">Medical Products</a></li>
+                  <li><a href="IT.html">IT Products</a></li>
+                  <li><a href="engineering.html">Engineering Products</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>IMPORTANT LINKS</strong>
+              <ul>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Shipping Details</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+          </div>
+
+          <!--footer-menu-box----->
+          <div class="footer-menu-box">
+              <strong>Contact</strong>
+              <ul>
+                  <li>info@collegesaver.com</li>
+                  <li>+63-965-785-9876</li>
+              </ul>
+          </div>
+
+          
+          
+      </div>
+
+
+   
+  </div>
+  </footer>
+  <span class="copyright">Copyright 2021 - College Saver</span>
+
+</html>
+
