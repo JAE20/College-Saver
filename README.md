@@ -1,5 +1,8 @@
 # 🎓 College Saver
 
+[![Status](https://img.shields.io/badge/Status-Prototype-orange?style=for-the-badge)](https://github.com/JAE20/College-Saver)
+[![Progress](https://img.shields.io/badge/Progress-In%20Development-blue?style=for-the-badge)](https://github.com/JAE20/College-Saver)
+
 ## 🛠️ Tech Stack & Tools
 
 ### Core Technologies
@@ -23,27 +26,35 @@
 [![Safari](https://img.shields.io/badge/Safari-000000?style=for-the-badge&logo=safari&logoColor=white)](https://www.apple.com/safari/)
 [![Edge](https://img.shields.io/badge/Edge-0078D4?style=for-the-badge&logo=microsoft-edge&logoColor=white)](https://www.microsoft.com/edge)
 
-### Payment Integration
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.com/)
-[![Visa](https://img.shields.io/badge/Visa-1A1F71?style=for-the-badge&logo=visa&logoColor=white)](https://visa.com/)
-[![Mastercard](https://img.shields.io/badge/Mastercard-EB001B?style=for-the-badge&logo=mastercard&logoColor=white)](https://mastercard.com/)
-
 ### License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> 💡 **Your one-stop shop for college essentials!**
+> 🎨 **A web design mockup for college essentials e-commerce platform**
 
-College Saver is a comprehensive web-based e-commerce platform designed specifically for students. Find and purchase essential supplies for Engineering, IT, and Medical courses all in one convenient location. Save time, save money, and focus on your studies! 📚
+College Saver is a **frontend prototype/mockup** of an e-commerce platform designed specifically for students. This project showcases the user interface and user experience design for browsing and purchasing essential supplies for Engineering, IT, and Medical courses. 
 
-## ✨ Features
+⚠️ **Note**: This is currently a **design prototype** with frontend-only functionality. Backend integrations and payment processing are not yet implemented.
 
-- 🛍️ **Category-based Shopping**: Browse supplies by Engineering, IT, and Medicine
-- 🛒 **Smart Cart System**: Add items to cart with real-time updates
-- 💳 **Secure Checkout**: Multiple payment options including PayPal, GCash, and more
-- 👤 **User Authentication**: Secure login and signup functionality
-- 📱 **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- 💬 **Contact Support**: Get help when you need it
-- ℹ️ **About Section**: Learn more about our mission
+## ✨ Current Features (Frontend Only)
+
+- 🛍️ **Category-based Browsing**: Visual layouts for Engineering, IT, and Medicine supplies
+- 🛒 **Cart Interface**: Frontend cart design with item display
+- 💳 **Checkout Mockup**: Payment interface design (no actual processing)
+- 👤 **User Interface**: Login and signup page designs
+- � **Responsive Design**: Mobile-first design approach
+- 💬 **Contact Form**: Frontend contact interface
+- ℹ️ **About Page**: Information section design
+
+## 🚧 In Development / Future Features
+
+- � **Backend Authentication**: User registration and login functionality
+- � **Payment Integration**: Real PayPal, GCash, and credit card processing
+- 📦 **Order Management**: Order tracking and history
+- 🗄️ **Database Integration**: Product and user data management
+- � **Search Functionality**: Product search and filtering
+- 📧 **Email Notifications**: Order confirmations and updates
+- 🛡️ **Security Features**: Data encryption and secure transactions
+- 📊 **Admin Dashboard**: Inventory and order management
 
 ## 🏗️ Project Structure
 
